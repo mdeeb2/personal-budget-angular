@@ -1,10 +1,16 @@
 const express = require('express');
+const { fileURLToPath } = require('url');
 const app = express();
 const port = 3000;
 
 app.use('/' , express.static('public'));
+//below is my json file being required
+const budget = require('./dee.json')
 
-const budget ={
+
+
+// I commented out the original budget data to see if json is working
+/*{
   myBudget:  [
 {
 title: 'Eat out',
@@ -46,18 +52,9 @@ budget: 30
         budget: 25
         
     },
-    {
-    title: 'car payment',
-    budget: 350
-            
-    },
-    {
-    title: 'Gym membership',
-    budget: 35
-        
-    }
+  
     
-]};
+]};*/
 
 
 
@@ -72,10 +69,10 @@ app.get('/hello', (req,res) =>{
 
 });
 
-app.get('/budget', (req,res) => {
-      res.json(budget);
-
-})
+app.get('/Budget', (req,res) => {
+  res.json(budget);
+     
+});
 
 app.listen(port, () => {
 
