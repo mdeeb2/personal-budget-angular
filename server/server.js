@@ -1,10 +1,12 @@
 const express = require('express');
-const { fileURLToPath } = require('url');
+
 const app = express();
+const cors = require('cors');
 const port = 3000;
 
 app.use('/' , express.static('public'));
 //below is my json file being required
+app.use(cors());
 const budget = require('./dee.json')
 
 
